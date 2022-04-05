@@ -1,5 +1,5 @@
 # SistemaDeLogin
-Sitema de login em PHP e Bootstrap com função "Lembrar usuário", sem banco de dados.
+Sitema de login em PHP e Bootstrap com função "Lembrar usuário" e registro de logs em documento .TXT
 
-usuário: henriquelockmann
-senha: 123456
+usuário: henrique
+senha: lockmann
