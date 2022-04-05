@@ -1,5 +1,5 @@
 
-<?php require('header.php'); require('hl_func/config_lg.php');  ?>
+<?php require('header.php'); require('hl_func/config_lg.php');?>
 <body>
   <div class="container col-xl-10 col-xxl-8 px-4 py-5">
     <div class="row align-items-center g-lg-5 py-5">

@@ -1,5 +1,26 @@
 <?php
-session_start();
+
+function getUserIP()
+{
+    $client  = @$_SERVER['HTTP_CLIENT_IP'];
+    $forward = @$_SERVER['HTTP_X_FORWARDED_FOR'];
+    $remote  = $_SERVER['REMOTE_ADDR'];
+
+    if(filter_var($client, FILTER_VALIDATE_IP))
+    {
+        $ip = $client;
+    }
+    elseif(filter_var($forward, FILTER_VALIDATE_IP))
+    {
+        $ip = $forward;
+    }
+    else
+    {
+        $ip = $remote;
+    }
+
+    return $ip;
+}
     if(isset($_COOKIE['remember'])){
       $check = "checked='checked'";
       $cookieUsuario = $_COOKIE['remember'];
@@ -11,7 +32,7 @@ session_start();
     }
     if(isset($_POST['entrar'])){
       $arrayClient = array(
-        array('name' => 'Henrique Lockmann', 'login' => 'henriquelockmann', 'password' => 'e10adc3949ba59abbe56e057f20f883e'),
+        array('name' => 'Henrique Lockmann', 'login' => 'henrique', 'password' => 'a388544f4af376fd02eebae77779a027'), //login
       );
       $client = filter_input(INPUT_POST, 'usuario', FILTER_SANITIZE_SPECIAL_CHARS);
       $passclient = filter_input(INPUT_POST, 'senha', FILTER_SANITIZE_SPECIAL_CHARS);
@@ -38,7 +59,12 @@ session_start();
           }
           $_SESSION['nome'] = $result['name'];
           $_SESSION['login'] = $result['login'];
-
+          $namelog = $_SESSION['nome'];
+          $user_ip = getUserIp();
+          $dt = date("d-m-Y H:i");
+          $log = file_get_contents('dashboard/logs.php');
+          $log .= "[NOME]:".$namelog."  - [LOGIN]: ".$client." - [IP]: ".$user_ip." - [DATA]: ".$dt."<hr>";
+          file_put_contents('dashboard/logs.php', $log);
           header("location: dashboard/");
 
         }else{

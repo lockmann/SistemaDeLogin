@@ -9,8 +9,6 @@ if(isset($_POST['sair'])){
 
 if (!isset($_SESSION['nome'])) {
 	header("location: ../");
-}else{
-	# code...
 }
 
 
@@ -23,20 +21,21 @@ if (!isset($_SESSION['nome'])) {
   <meta name="description" content="Sistema de Login, desenvolvido em Bootstrap e PHP">
   <meta name="author" content="Henrique Lockmann">
   <title>Dashboard</title>
-  <link href="../assets/css/bootstrap.min.css" rel="stylesheet"> 
+  <link href="../hl_assets/css/bootstrap.min.css" rel="stylesheet"> 
 </head>
 <body>
-	<div class="container-fluid bg-light">
+	<div class="container-fluid bg-light shadow p-1">
 		<div class="container d-flex justify-content-between align-items-center">
-			<small>Bem-vindo, <?php echo $_SESSION['nome'] ?></small>
+			<small class="text-primary">Bem-vindo, <?php echo $_SESSION['nome'] ?></small>
 			<form method="POST">
-				<button class="btn btn-ligth" name="sair" type="submit">Sair</button>
+				<button class="btn btn-primary" name="sair" type="submit">Sair</button>
 			</form>
 			
 		</div>
 	</div>
 	<div class="container mt-4">
 		<h4>Dashboard</h4>
+		<p><a href="logs.php" target="_blank">Histórico de login</a></p>
 	</div>
 	
 </body>
