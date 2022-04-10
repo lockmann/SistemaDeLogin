@@ -26,7 +26,7 @@
           </div>
           <button class="w-100 btn btn-lg btn-primary" type="submit" name="entrar">Entrar</button>
           <hr class="my-4">
-          <small class="text-muted">Desenvolvido por Henrique Lockmann</small>
+          <small class="text-muted"><a href="https://henriquelockmann.com.br">Desenvolvido por Henrique Lockmann</a></small>
         </form>
       </div>
     </div>
